@@ -54,17 +54,11 @@ class ViewController: UIViewController {
     }
     
     private func editStack() {
-        //stackView.distribution  = UIStackView.Distribution.equalSpacing
         stackView.addArrangedSubview(label)
         stackView.addArrangedSubview(button)
-        
         stackView.axis  = NSLayoutConstraint.Axis.vertical
-        //        stackView.alignment = UIStackView.Alignment.center
         stackView.distribution = .fillEqually
         stackView.alignment = .fill
-        //        stackView.spacing   = 20.0
-        //        stackView.layoutIfNeeded()
-        
         stackView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(stackView)
         
@@ -75,7 +69,6 @@ class ViewController: UIViewController {
     
     @IBAction func setColor(_ sender: Any) {
         //MARK: get current date and transform in timestemp
-        
         let detailVC = DetailViewController()
         detailVC.model = changeLabelColor()
         navigationController?.pushViewController(detailVC, animated: true)

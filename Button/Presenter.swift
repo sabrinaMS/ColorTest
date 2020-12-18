@@ -15,7 +15,6 @@ protocol PresenterView: class {
 
 class Presenter {
     weak var view: PresenterView?
-    // Pass something that conforms to PresenterView
     
     init(with view: PresenterView) {
         self.view = view
