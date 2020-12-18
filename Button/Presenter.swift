@@ -27,10 +27,8 @@ class Presenter {
         print(timestamp)
                 
 //      MARK: transform timestamp in string to get last item
-//      FIX: try with int
         let a = String(timestamp)
         let lastone = String(a.suffix(1))
         return lastone
     }
-    
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     var model = LabelModel()
-    var label2 = UILabel(frame: CGRect.zero)
+    private var label2 = UILabel(frame: CGRect.zero)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,18 +18,17 @@ class DetailViewController: UIViewController {
         view.backgroundColor = UIColor(named: model.color) ?? UIColor.white
         
         changeLabel()
-    
     }
     
     func changeLabel() {
-    label2.text = model.text
-    label2.textAlignment = .center
-    label2.translatesAutoresizingMaskIntoConstraints = false
-    
-    self.view.addSubview(label2)
-            
-    // MARK: Crete centered (y and x) constraints
-    label2.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
-    label2.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        label2.text = model.text
+        label2.textAlignment = .center
+        label2.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addSubview(label2)
+                
+        // MARK: Crete centered (y and x) constraints
+        label2.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        label2.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
     }
 }

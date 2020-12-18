@@ -11,12 +11,14 @@ import UIKit
 class ViewController: UIViewController {
     
     lazy var presenter = Presenter(with: self)
-    let label = UILabel(frame: CGRect.zero)
-    let button = UIButton(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
-    let stackView   = UIStackView()
+    private let label = UILabel(frame: CGRect.zero)
+    private let button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 55))
+    private let stackView   = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.backBarButtonItem = UIBarButtonItem(
+        title: "Sortear outra cor", style: .plain, target: nil, action: nil)
         view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
         //MARK: edit label
@@ -29,17 +31,20 @@ class ViewController: UIViewController {
         editStack()
     }
     
-    func editLabel() {
-        label.text = "Sorteie uma cor 🤹‍♀️"
+    private func editLabel() {
+        label.text = "Sorteie uma cor:"
+        label.font = UIFont.boldSystemFont(ofSize: 20.0)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         
         self.view.addSubview(label)
     }
     
-    func editButton() {
-        button.setTitle("tap me", for: .normal)
-        button.backgroundColor = UIColor.init(named: "1")
+    private func editButton() {
+        button.setTitle("🤹‍♀️", for: .normal)
+        button.titleLabel?.font =  UIFont.boldSystemFont(ofSize: 18.0)
+        button.titleLabel?.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        button.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         button.layer.cornerRadius = 10
         button.layer.borderWidth = 1
         button.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -48,10 +53,10 @@ class ViewController: UIViewController {
         self.view.addSubview(button)
     }
     
-    func editStack() {
+    private func editStack() {
         //stackView.distribution  = UIStackView.Distribution.equalSpacing
-        stackView.addArrangedSubview(button)
         stackView.addArrangedSubview(label)
+        stackView.addArrangedSubview(button)
         
         stackView.axis  = NSLayoutConstraint.Axis.vertical
         //        stackView.alignment = UIStackView.Alignment.center
@@ -70,7 +75,6 @@ class ViewController: UIViewController {
     
     @IBAction func setColor(_ sender: Any) {
         //MARK: get current date and transform in timestemp
-        //        changeLabelColor()
         
         let detailVC = DetailViewController()
         detailVC.model = changeLabelColor()
